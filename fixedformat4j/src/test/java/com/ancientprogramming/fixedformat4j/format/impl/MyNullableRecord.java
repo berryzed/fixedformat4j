@@ -27,7 +27,7 @@ import java.util.Date;
  * @since 1.0.0
  */
 @Record
-public class MyRecord {
+public class MyNullableRecord {
 
   private String stringData;
   private Integer integerData;
@@ -39,10 +39,9 @@ public class MyRecord {
   private Float floatData;
   private BigDecimal bigDecimalData;
   private float simpleFloatData;
-  private String[] stringArray;
 
 
-  @Field(offset = 1, length = 10, align = Align.RIGHT, paddingChar = ' ')
+  @Field(offset = 1, length = 10, align = Align.RIGHT, paddingChar = '*', nullChar=' ')
   public String getStringData() {
     return stringData;
   }
@@ -51,7 +50,7 @@ public class MyRecord {
     this.stringData = stringData;
   }
 
-  @Field(offset = 11, length = 5, align = Align.RIGHT, paddingChar = '0')
+  @Field(offset = 11, length = 5, align = Align.RIGHT, paddingChar = '0', nullChar=' ')
   public Integer getIntegerData() {
     return integerData;
   }
@@ -87,7 +86,7 @@ public class MyRecord {
     this.booleanData = booleanData;
   }
 
-  @Field(offset = 26, length = 4, align = Align.RIGHT, paddingChar = '0')
+  @Field(offset = 26, length = 4, align = Align.RIGHT, paddingChar = '0', nullChar=' ')
   public Long getLongData() {
     return longData;
   }
@@ -96,7 +95,7 @@ public class MyRecord {
     this.longData = longData;
   }
 
-  @Field(offset = 30, length = 10, align = Align.RIGHT, paddingChar = '0')
+  @Field(offset = 30, length = 10, align = Align.RIGHT, paddingChar = '0', nullChar=' ')
   public Double getDoubleData() {
     return doubleData;
   }
@@ -105,7 +104,7 @@ public class MyRecord {
     this.doubleData = doubleData;
   }
 
-  @Field(offset = 40, length = 10, align = Align.RIGHT, paddingChar = '0')
+  @Field(offset = 40, length = 10, align = Align.RIGHT, paddingChar = '0', nullChar=' ')
   public Float getFloatData() {
     return floatData;
   }
@@ -114,7 +113,7 @@ public class MyRecord {
     this.floatData = floatData;
   }
 
-  @Field(offset = 50, length = 10, align = Align.RIGHT, paddingChar = '0')
+  @Field(offset = 50, length = 10, align = Align.RIGHT, paddingChar = '0', nullChar=' ')
   @FixedFormatDecimal(decimals = 4, decimalDelimiter = ' ', useDecimalDelimiter = true)
   @FixedFormatNumber(sign = Sign.PREPEND)
   public BigDecimal getBigDecimalData() {
@@ -125,7 +124,7 @@ public class MyRecord {
     this.bigDecimalData = bigDecimalData;
   }
 
-  @Field(offset = 60, length = 10, align = Align.RIGHT, paddingChar = '0')
+  @Field(offset = 60, length = 10, align = Align.RIGHT, paddingChar = '0', nullChar=' ')
   public float getSimpleFloatData() {
     return simpleFloatData;
   }
@@ -133,6 +132,7 @@ public class MyRecord {
   public void setSimpleFloatData(float simpleFloatData) {
     this.simpleFloatData = simpleFloatData;
   }
+
 
   @Record
   static class MyStaticNestedClass {
@@ -163,9 +163,4 @@ public class MyRecord {
       this.stringData = stringData;
     }
   }
-
-  @Fields(offset = 70, length = 2, count = 2)
-  public String[] getStringArray() { return stringArray; }
-
-  public void setStringArray(String[] stringArray) { this.stringArray = stringArray; }
 }

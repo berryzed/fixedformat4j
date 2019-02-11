@@ -46,7 +46,7 @@ public @interface Field {
   int length();
 
   /**
-   * @return The direction of the padding. Defaults to {@link Align#RIGHT}.
+   * @return The direction of the padding. Defaults to {@link Align#LEFT}.
    */
   Align align() default Align.LEFT;
 
@@ -55,6 +55,12 @@ public @interface Field {
    * @return the padding character
    */
   char paddingChar() default ' ';
+
+  /**
+   * The character to pad with if data is null
+   * @return the null character
+   */
+  char nullChar() default ' ';
 
   Class<? extends FixedFormatter> formatter() default ByTypeFormatter.class;
 
