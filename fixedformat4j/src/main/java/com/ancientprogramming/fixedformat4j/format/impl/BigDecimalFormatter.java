@@ -16,7 +16,6 @@
 package com.ancientprogramming.fixedformat4j.format.impl;
 
 import com.ancientprogramming.fixedformat4j.format.FormatInstructions;
-
 import java.math.BigDecimal;
 
 /**
@@ -27,8 +26,8 @@ import java.math.BigDecimal;
  */
 public class BigDecimalFormatter extends AbstractDecimalFormatter<BigDecimal> {
 
-    public BigDecimal asObject(String string, FormatInstructions instructions) {
-      String toConvert = getStringToConvert(string, instructions);
-      return new BigDecimal("".equals(toConvert) ? "0" : toConvert);
-    }
+  public BigDecimal asObject(String string, FormatInstructions instructions) {
+    String toConvert = getStringToConvert(string, instructions);
+    return new BigDecimal("".equals(toConvert) ? "0" : toConvert);
+  }
 }

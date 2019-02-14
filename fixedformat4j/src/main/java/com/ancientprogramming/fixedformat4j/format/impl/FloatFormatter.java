@@ -24,10 +24,10 @@ import com.ancientprogramming.fixedformat4j.format.FormatInstructions;
  * @since 1.0.0
  */
 public class FloatFormatter extends AbstractDecimalFormatter<Float> {
-  
+
   public Float asObject(String string, FormatInstructions instructions) {
-      String toConvert = getStringToConvert(string, instructions);
-      return Float.parseFloat("".equals(toConvert) ? "0" : toConvert);
-    }
+    String toConvert = getStringToConvert(string, instructions);
+    return Float.parseFloat("".equals(toConvert) ? "0" : toConvert);
+  }
 
 }

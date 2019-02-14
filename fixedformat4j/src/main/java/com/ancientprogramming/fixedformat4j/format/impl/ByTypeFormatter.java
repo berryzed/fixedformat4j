@@ -19,7 +19,6 @@ import com.ancientprogramming.fixedformat4j.exception.FixedFormatException;
 import com.ancientprogramming.fixedformat4j.format.FixedFormatter;
 import com.ancientprogramming.fixedformat4j.format.FormatContext;
 import com.ancientprogramming.fixedformat4j.format.FormatInstructions;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -27,15 +26,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Formatter capable of formatting a bunch of known java standard library classes. So far:
- * {@link String}, {@link Integer}, {@link Short}, {@link Long}, {@link Date},
- * {@link Character}, {@link Boolean}, {@link Double}, {@link Float} and {@link BigDecimal}
- *
+ * Formatter capable of formatting a bunch of known java standard library classes. So far: {@link
+ * String}, {@link Integer}, {@link Short}, {@link Long}, {@link Date}, {@link Character}, {@link
+ * Boolean}, {@link Double}, {@link Float} and {@link BigDecimal}
  *
  * @author Jacob von Eyben - http://www.ancientprogramming.com
  * @since 1.0.0
  */
 public class ByTypeFormatter implements FixedFormatter<Object> {
+
   private FormatContext context;
 
   private static final Map<Class<? extends Serializable>, Class<? extends FixedFormatter>> KNOWN_FORMATTERS = new HashMap<Class<? extends Serializable>, Class<? extends FixedFormatter>>();
@@ -57,7 +56,7 @@ public class ByTypeFormatter implements FixedFormatter<Object> {
     KNOWN_FORMATTERS.put(Double.class, DoubleFormatter.class);
     KNOWN_FORMATTERS.put(float.class, FloatFormatter.class);
     KNOWN_FORMATTERS.put(Float.class, FloatFormatter.class);
-    KNOWN_FORMATTERS.put(BigDecimal.class,  BigDecimalFormatter.class);
+    KNOWN_FORMATTERS.put(BigDecimal.class, BigDecimalFormatter.class);
   }
 
   public ByTypeFormatter(FormatContext context) {
@@ -82,12 +81,16 @@ public class ByTypeFormatter implements FixedFormatter<Object> {
       try {
         return formatterClass.getConstructor().newInstance();
       } catch (NoSuchMethodException e) {
-        throw new FixedFormatException("Could not create instance of[" + formatterClass.getName() + "] because no default constructor exists");
+        throw new FixedFormatException("Could not create instance of[" + formatterClass.getName()
+            + "] because no default constructor exists");
       } catch (Exception e) {
-        throw new FixedFormatException("Could not create instance of[" + formatterClass.getName() + "]", e);
+        throw new FixedFormatException(
+            "Could not create instance of[" + formatterClass.getName() + "]", e);
       }
     } else {
-      throw new FixedFormatException(ByTypeFormatter.class.getName() + " cannot handle datatype[" + dataType.getName() + "]. Provide your own custom FixedFormatter for this datatype.");
+      throw new FixedFormatException(
+          ByTypeFormatter.class.getName() + " cannot handle datatype[" + dataType.getName()
+              + "]. Provide your own custom FixedFormatter for this datatype.");
     }
   }
 }

@@ -16,28 +16,29 @@
 package com.ancientprogramming.fixedformat4j.annotation;
 
 import com.ancientprogramming.fixedformat4j.format.FormatInstructions;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
- * Sign defines where to place a sign defining a positive or negative number.
- * Is to be used in formatters operating numbers.
- * 
+ * Sign defines where to place a sign defining a positive or negative number. Is to be used in
+ * formatters operating numbers.
+ *
  * @author Jacob von Eyben - http://www.ancientprogramming.com
  * @since 1.1.0
  */
 public enum Sign {
 
   /**
-   * Doesn't do anything with signs.
-   * This just delegate to the {@link Align} defined in {@link FormatInstructions}.
+   * Doesn't do anything with signs. This just delegate to the {@link Align} defined in {@link
+   * FormatInstructions}.
    */
   NOSIGN {
     public String apply(String value, FormatInstructions instructions) {
-      return instructions.getAlignment().apply(value, instructions.getLength(), instructions.getPaddingChar());
+      return instructions.getAlignment()
+          .apply(value, instructions.getLength(), instructions.getPaddingChar());
     }
 
     public String remove(String value, FormatInstructions instructions) {
-      String result =  instructions.getAlignment().remove(value, instructions.getPaddingChar());
+      String result = instructions.getAlignment().remove(value, instructions.getPaddingChar());
       if (StringUtils.isEmpty(result)) {
         result = "0";
       }
@@ -57,14 +58,16 @@ public enum Sign {
       } else {
         sign = "+";
       }
-      String result = instructions.getAlignment().apply(value, instructions.getLength(), instructions.getPaddingChar());
+      String result = instructions.getAlignment()
+          .apply(value, instructions.getLength(), instructions.getPaddingChar());
       return sign + StringUtils.substring(result, 1);
     }
 
     public String remove(String value, FormatInstructions instructions) {
       String sign = StringUtils.substring(value, 0, 1);
       String valueWithoutSign = StringUtils.substring(value, 1);
-      String result = instructions.getAlignment().remove(valueWithoutSign, instructions.getPaddingChar());
+      String result = instructions.getAlignment()
+          .remove(valueWithoutSign, instructions.getPaddingChar());
       if (removeSign(instructions, sign, result)) {
         sign = "";
       }
@@ -87,14 +90,17 @@ public enum Sign {
       } else {
         sign = "+";
       }
-      String result = instructions.getAlignment().apply(value, instructions.getLength(), instructions.getPaddingChar());
+      String result = instructions.getAlignment()
+          .apply(value, instructions.getLength(), instructions.getPaddingChar());
       return StringUtils.substring(result, 1) + sign;
 
     }
+
     public String remove(String value, FormatInstructions instructions) {
-      String sign = StringUtils.substring(value, value.length()-1);
-      String valueWithoutSign = StringUtils.substring(value, 0, value.length()-1);
-      String result = instructions.getAlignment().remove(valueWithoutSign, instructions.getPaddingChar());
+      String sign = StringUtils.substring(value, value.length() - 1);
+      String valueWithoutSign = StringUtils.substring(value, 0, value.length() - 1);
+      String result = instructions.getAlignment()
+          .remove(valueWithoutSign, instructions.getPaddingChar());
       if (removeSign(instructions, sign, result)) {
         sign = "";
       }
@@ -106,16 +112,12 @@ public enum Sign {
   };
 
   /**
-   *remove sign in three cases:
-   * 1. positive sign
-   * 2. the unsigned value is empty (can happen if paddingchar is 0 and the value is zero)
-   * 3. the unsigned value is 0 (can happen if paddingchar isn't 0 and the value is zero)
-   * @param instructions
-   * @param sign
-   * @param valueWithoutSign
-   * @return
+   * remove sign in three cases: 1. positive sign 2. the unsigned value is empty (can happen if
+   * paddingchar is 0 and the value is zero) 3. the unsigned value is 0 (can happen if paddingchar
+   * isn't 0 and the value is zero)
    */
-  private static boolean removeSign(FormatInstructions instructions, String sign, String valueWithoutSign) {
+  private static boolean removeSign(FormatInstructions instructions, String sign,
+      String valueWithoutSign) {
     return instructions.getFixedFormatNumberData().getPositiveSign().equals(sign.charAt(0)) ||
         StringUtils.isEmpty(valueWithoutSign) ||
         "0".equals(valueWithoutSign);

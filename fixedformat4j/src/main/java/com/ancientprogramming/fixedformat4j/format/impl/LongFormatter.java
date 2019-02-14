@@ -15,7 +15,6 @@
  */
 package com.ancientprogramming.fixedformat4j.format.impl;
 
-import com.ancientprogramming.fixedformat4j.format.AbstractFixedFormatter;
 import com.ancientprogramming.fixedformat4j.format.FormatInstructions;
 
 /**
@@ -33,7 +32,7 @@ public class LongFormatter extends AbstractNumberFormatter<Long> {
   public String asString(Long obj, FormatInstructions instructions) {
     String result = null;
     if (obj != null) {
-    result = Long.toString(obj);
+      result = Long.toString(obj);
     }
     return result;
   }

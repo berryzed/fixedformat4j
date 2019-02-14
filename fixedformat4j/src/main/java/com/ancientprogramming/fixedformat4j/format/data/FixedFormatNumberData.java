@@ -14,8 +14,11 @@
  * limitations under the License.
  */
 package com.ancientprogramming.fixedformat4j.format.data;
+
+import static com.ancientprogramming.fixedformat4j.annotation.FixedFormatNumber.DEFAULT_NEGATIVE_SIGN;
+import static com.ancientprogramming.fixedformat4j.annotation.FixedFormatNumber.DEFAULT_POSITIVE_SIGN;
+
 import com.ancientprogramming.fixedformat4j.annotation.Sign;
-import static com.ancientprogramming.fixedformat4j.annotation.FixedFormatNumber.*;
 
 /**
  * Data object containing the exact same data as {@link com.ancientprogramming.fixedformat4j.annotation.FixedFormatNumber}
@@ -25,7 +28,8 @@ import static com.ancientprogramming.fixedformat4j.annotation.FixedFormatNumber.
  */
 public class FixedFormatNumberData {
 
-  public static final FixedFormatNumberData DEFAULT = new FixedFormatNumberData(Sign.NOSIGN, DEFAULT_POSITIVE_SIGN, DEFAULT_NEGATIVE_SIGN);
+  public static final FixedFormatNumberData DEFAULT = new FixedFormatNumberData(Sign.NOSIGN,
+      DEFAULT_POSITIVE_SIGN, DEFAULT_NEGATIVE_SIGN);
 
   private Sign signing;
   private char positiveSign;
@@ -37,7 +41,7 @@ public class FixedFormatNumberData {
     this.negativeSign = negativeSign;
   }
 
-  
+
   public Sign getSigning() {
     return signing;
   }
@@ -55,7 +59,7 @@ public class FixedFormatNumberData {
     return "FixedFormatNumberData{" +
         "signing=" + signing +
         ", positiveSign='" + positiveSign + "'" +
-        ", negativeSign='" + negativeSign + "'" + 
+        ", negativeSign='" + negativeSign + "'" +
         '}';
   }
 }

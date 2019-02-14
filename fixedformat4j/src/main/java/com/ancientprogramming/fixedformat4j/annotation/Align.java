@@ -15,7 +15,7 @@
  */
 package com.ancientprogramming.fixedformat4j.annotation;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Capable of pad or chop data in a given direction
@@ -42,6 +42,7 @@ public enum Align {
       }
       return result;
     }
+
     public String remove(String data, char paddingChar) {
       String result = data;
       if (data == null) {
@@ -51,8 +52,8 @@ public enum Align {
         result = result.substring(1, result.length());
       }
       return result;
-    }},
-
+    }
+  },
 
   /**
    * Pad or chop data to the right, so the text is aligned to the left
@@ -78,17 +79,18 @@ public enum Align {
         result = "";
       }
       while (result.endsWith("" + paddingChar)) {
-        result = result.substring(0, result.length()-1);
+        result = result.substring(0, result.length() - 1);
       }
       return result;
-    }};
+    }
+  };
 
   /**
-   * Pads the data in the length specified with the given padding char.
-   * No padding will be applied if the length of the data is longer than the given length.
+   * Pads the data in the length specified with the given padding char. No padding will be applied
+   * if the length of the data is longer than the given length.
    *
-   * @param data        the data to pad.
-   * @param length      the minimum length after the padding is applied.
+   * @param data the data to pad.
+   * @param length the minimum length after the padding is applied.
    * @param paddingChar the char the data is padded with.
    * @return the data after padding is applied.
    */
@@ -97,7 +99,7 @@ public enum Align {
   /**
    * Remove the padding chars from the data.
    *
-   * @param data        the data including padding chars
+   * @param data the data including padding chars
    * @param paddingChar the padding char to remove
    * @return the data after padding is removed.
    */

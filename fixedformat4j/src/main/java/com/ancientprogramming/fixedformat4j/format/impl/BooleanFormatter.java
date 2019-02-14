@@ -18,7 +18,7 @@ package com.ancientprogramming.fixedformat4j.format.impl;
 import com.ancientprogramming.fixedformat4j.exception.FixedFormatException;
 import com.ancientprogramming.fixedformat4j.format.AbstractFixedFormatter;
 import com.ancientprogramming.fixedformat4j.format.FormatInstructions;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Formatter for {@link Boolean} data
@@ -28,7 +28,8 @@ import org.apache.commons.lang.StringUtils;
  */
 public class BooleanFormatter extends AbstractFixedFormatter<Boolean> {
 
-  public Boolean asObject(String string, FormatInstructions instructions) throws FixedFormatException {
+  public Boolean asObject(String string, FormatInstructions instructions)
+      throws FixedFormatException {
     Boolean result = false;
     if (!StringUtils.isEmpty(string)) {
       if (instructions.getFixedFormatBooleanData().getTrueValue().equals(string)) {
@@ -36,7 +37,9 @@ public class BooleanFormatter extends AbstractFixedFormatter<Boolean> {
       } else if (instructions.getFixedFormatBooleanData().getFalseValue().equals(string)) {
         result = false;
       } else {
-        throw new FixedFormatException("Could not convert string[" + string + "] to boolean value according to booleanData[" + instructions.getFixedFormatBooleanData() + "]");
+        throw new FixedFormatException(
+            "Could not convert string[" + string + "] to boolean value according to booleanData["
+                + instructions.getFixedFormatBooleanData() + "]");
       }
     }
     return result;
@@ -45,7 +48,8 @@ public class BooleanFormatter extends AbstractFixedFormatter<Boolean> {
   public String asString(Boolean obj, FormatInstructions instructions) {
     String result = instructions.getFixedFormatBooleanData().getFalseValue();
     if (obj != null) {
-      result = obj ? instructions.getFixedFormatBooleanData().getTrueValue() : instructions.getFixedFormatBooleanData().getFalseValue();
+      result = obj ? instructions.getFixedFormatBooleanData().getTrueValue()
+          : instructions.getFixedFormatBooleanData().getFalseValue();
     }
     return result;
   }

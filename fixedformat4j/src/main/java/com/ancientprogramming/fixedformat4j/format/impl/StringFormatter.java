@@ -33,7 +33,7 @@ public class StringFormatter extends AbstractFixedFormatter<String> {
   public String asString(String string, FormatInstructions instructions) {
     String result = null;
     if (string != null) {
-    result = string;
+      result = string;
     }
     return result;
   }

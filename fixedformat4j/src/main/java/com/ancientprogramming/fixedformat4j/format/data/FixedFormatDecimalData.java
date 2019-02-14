@@ -15,11 +15,13 @@
  */
 package com.ancientprogramming.fixedformat4j.format.data;
 
+import static com.ancientprogramming.fixedformat4j.annotation.FixedFormatDecimal.DECIMALS;
+import static com.ancientprogramming.fixedformat4j.annotation.FixedFormatDecimal.DECIMAL_DELIMITER;
+import static com.ancientprogramming.fixedformat4j.annotation.FixedFormatDecimal.ROUNDING_MODE;
+import static com.ancientprogramming.fixedformat4j.annotation.FixedFormatDecimal.USE_DECIMAL_DELIMITER;
+
 import com.ancientprogramming.fixedformat4j.annotation.FixedFormatDecimal;
-
 import java.math.RoundingMode;
-
-import static com.ancientprogramming.fixedformat4j.annotation.FixedFormatDecimal.*;
 
 /**
  * Data object containing the exact same data as {@link FixedFormatDecimal}
@@ -33,10 +35,12 @@ public class FixedFormatDecimalData {
   private boolean useDecimalDelimiter;
   private char decimalDelimiter;
   private RoundingMode roundingMode;
-  
-  public static final FixedFormatDecimalData DEFAULT = new FixedFormatDecimalData(DECIMALS, USE_DECIMAL_DELIMITER, DECIMAL_DELIMITER, RoundingMode.valueOf(ROUNDING_MODE));
 
-  public FixedFormatDecimalData(int decimals, boolean useDecimalDelimiter, char decimalDelimiter, RoundingMode roundingMode) {
+  public static final FixedFormatDecimalData DEFAULT = new FixedFormatDecimalData(DECIMALS,
+      USE_DECIMAL_DELIMITER, DECIMAL_DELIMITER, RoundingMode.valueOf(ROUNDING_MODE));
+
+  public FixedFormatDecimalData(int decimals, boolean useDecimalDelimiter, char decimalDelimiter,
+      RoundingMode roundingMode) {
     this.decimals = decimals;
     this.useDecimalDelimiter = useDecimalDelimiter;
     this.decimalDelimiter = decimalDelimiter;
@@ -63,8 +67,8 @@ public class FixedFormatDecimalData {
     return "FixedFormatDecimalData{" +
         "decimals=" + decimals +
         ", useDecimalDelimiter=" + useDecimalDelimiter +
-        ", decimalDelimiter='" + decimalDelimiter + "'" + 
-        ", roundingMode='" + roundingMode + "'" + 
+        ", decimalDelimiter='" + decimalDelimiter + "'" +
+        ", roundingMode='" + roundingMode + "'" +
         '}';
   }
 }

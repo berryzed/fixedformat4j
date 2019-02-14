@@ -18,16 +18,15 @@ package com.ancientprogramming.fixedformat4j.format.impl;
 import com.ancientprogramming.fixedformat4j.exception.FixedFormatException;
 import com.ancientprogramming.fixedformat4j.format.AbstractFixedFormatter;
 import com.ancientprogramming.fixedformat4j.format.FormatInstructions;
-import org.apache.commons.lang.StringUtils;
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import org.apache.commons.lang3.StringUtils;
 
 /**
- * Formatter for {@link java.util.Date} data.
- * The formatting and parsing is perfomed by using an instance of the {@link SimpleDateFormat} class.
+ * Formatter for {@link java.util.Date} data. The formatting and parsing is perfomed by using an
+ * instance of the {@link SimpleDateFormat} class.
  *
  * @author Jacob von Eyben - http://www.ancientprogramming.com
  * @since 1.0.0
@@ -41,7 +40,9 @@ public class DateFormatter extends AbstractFixedFormatter<Date> {
       try {
         result = getFormatter(instructions.getFixedFormatPatternData().getPattern()).parse(string);
       } catch (ParseException e) {
-        throw new FixedFormatException("Could not parse value[" + string + "] by pattern[" + instructions.getFixedFormatPatternData().getPattern() + "] to " + Date.class.getName());
+        throw new FixedFormatException(
+            "Could not parse value[" + string + "] by pattern[" + instructions
+                .getFixedFormatPatternData().getPattern() + "] to " + Date.class.getName());
       }
     }
     return result;

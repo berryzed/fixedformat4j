@@ -15,18 +15,21 @@
  */
 package com.ancientprogramming.fixedformat4j.format.data;
 
+import static com.ancientprogramming.fixedformat4j.annotation.FixedFormatBoolean.FALSE_VALUE;
+import static com.ancientprogramming.fixedformat4j.annotation.FixedFormatBoolean.TRUE_VALUE;
+
 import com.ancientprogramming.fixedformat4j.annotation.FixedFormatBoolean;
-import static com.ancientprogramming.fixedformat4j.annotation.FixedFormatBoolean.*;
 
 /**
- * Data object containing the exact same data as {@link FixedFormatBoolean} 
-  *
+ * Data object containing the exact same data as {@link FixedFormatBoolean}
+ *
  * @author Jacob von Eyben - http://www.ancientprogramming.com
  * @since 1.0.0
  */
 public class FixedFormatBooleanData {
 
-  public static final FixedFormatBooleanData DEFAULT = new FixedFormatBooleanData(TRUE_VALUE, FALSE_VALUE);
+  public static final FixedFormatBooleanData DEFAULT = new FixedFormatBooleanData(TRUE_VALUE,
+      FALSE_VALUE);
 
   private String trueValue;
 

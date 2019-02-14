@@ -15,11 +15,11 @@
  */
 package com.ancientprogramming.fixedformat4j.format;
 
+import static java.lang.String.format;
+
 import com.ancientprogramming.fixedformat4j.exception.FixedFormatException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
-import static java.lang.String.format;
 
 /**
  * Utility class used when loading and exporting to and from fixedformat data.
@@ -32,13 +32,17 @@ public class FixedFormatUtil {
   private static final Log LOG = LogFactory.getLog(FixedFormatUtil.class);
 
   /**
-   * Fetch data from the record string according to the {@link FormatInstructions} and {@link FormatContext}
+   * Fetch data from the record string according to the {@link FormatInstructions} and {@link
+   * FormatContext}
+   *
    * @param record the string to fetch from
    * @param instructions the fixed
    * @param context the context to fetch data in
-   * @return the String data fetched from the record. Can be <code>null</code> if the record was shorter than the context expected
+   * @return the String data fetched from the record. Can be <code>null</code> if the record was
+   * shorter than the context expected
    */
-  public static String fetchData(String record, FormatInstructions instructions, FormatContext context) {
+  public static String fetchData(String record, FormatInstructions instructions,
+      FormatContext context) {
     String result;
     int offset = context.getOffset() - 1;
     int length = instructions.getLength();
@@ -48,11 +52,15 @@ public class FixedFormatUtil {
       //the field does contain data, but is not as long as the instructions tells.
       result = record.substring(offset, record.length());
       if (LOG.isDebugEnabled()) {
-        LOG.info(format("The record field was not as long as expected by the instructions. Expected field to be %s long but it was %s.", length, record.length()));
+        LOG.info(format(
+            "The record field was not as long as expected by the instructions. Expected field to be %s long but it was %s.",
+            length, record.length()));
       }
     } else {
       result = null;
-      LOG.info(format("Could not fetch data from record as the recordlength[%s] was shorter than or equal to the requested offset[%s] of the request data. Returning null", record.length(), offset));
+      LOG.info(format(
+          "Could not fetch data from record as the recordlength[%s] was shorter than or equal to the requested offset[%s] of the request data. Returning null",
+          record.length(), offset));
     }
     if (LOG.isDebugEnabled()) {
       LOG.debug(format("fetched '%s' from record", result));
@@ -60,18 +68,24 @@ public class FixedFormatUtil {
     return result;
   }
 
-  public static <T> FixedFormatter<T> getFixedFormatterInstance(Class<? extends FixedFormatter<T>> formatterClass, FormatContext context) {
-    FixedFormatter<T> formatter = getFixedFormatterInstance(formatterClass, context.getClass(), context);
+  public static <T> FixedFormatter<T> getFixedFormatterInstance(
+      Class<? extends FixedFormatter<T>> formatterClass, FormatContext context) {
+    FixedFormatter<T> formatter = getFixedFormatterInstance(formatterClass, context.getClass(),
+        context);
     if (formatter == null) {
       formatter = getFixedFormatterInstance(formatterClass, null, null);
     }
     if (formatter == null) {
-      throw new FixedFormatException("could not create instance of [" + formatterClass.getName() + "] because the class has no default constructor and no constructor with " + FormatContext.class.getName() + " as argument.");
+      throw new FixedFormatException("could not create instance of [" + formatterClass.getName()
+          + "] because the class has no default constructor and no constructor with "
+          + FormatContext.class.getName() + " as argument.");
     }
     return formatter;
   }
 
-  public static <T> FixedFormatter<T> getFixedFormatterInstance(Class<? extends FixedFormatter<T>> formatterClass, Class paramType, FormatContext paramValue) {
+  public static <T> FixedFormatter<T> getFixedFormatterInstance(
+      Class<? extends FixedFormatter<T>> formatterClass, Class paramType,
+      FormatContext paramValue) {
     FixedFormatter<T> result;
     if (paramType != null && paramValue != null) {
       try {
@@ -79,7 +93,8 @@ public class FixedFormatUtil {
       } catch (NoSuchMethodException e) {
         result = null;
       } catch (Exception e) {
-        throw new FixedFormatException("Could not create instance with one argument constructor", e);
+        throw new FixedFormatException("Could not create instance with one argument constructor",
+            e);
       }
     } else {
       try {

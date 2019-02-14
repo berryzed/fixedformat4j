@@ -17,14 +17,14 @@ package com.ancientprogramming.fixedformat4j.annotation;
 
 import com.ancientprogramming.fixedformat4j.format.FixedFormatter;
 import com.ancientprogramming.fixedformat4j.format.impl.ByTypeFormatter;
-
-import java.lang.annotation.Target;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
- * This annotation descibes how a setter/getter pairs should be formatted by the fixedFormatManager.
+ * This annotation descibes how a setter/getter pairs should be formatted by the
+ * fixedFormatManager.
  *
  * @author Jacob von Eyben - http://www.ancientprogramming.com
  * @since 1.0.0
@@ -35,12 +35,14 @@ public @interface Field {
 
   /**
    * A one based offset to insert data at in a record.
+   *
    * @return the offset as an int
    */
   int offset();
 
   /**
    * The length of the formatted field
+   *
    * @return the length as an int
    */
   int length();
@@ -52,12 +54,14 @@ public @interface Field {
 
   /**
    * The character to pad with if the length is longer than the formatted data
+   *
    * @return the padding character
    */
   char paddingChar() default ' ';
 
   /**
    * The character to pad with if data is null
+   *
    * @return the null character
    */
   char nullChar() default ' ';

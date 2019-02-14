@@ -17,9 +17,9 @@ package com.ancientprogramming.fixedformat4j.format.impl;
 
 import com.ancientprogramming.fixedformat4j.format.AbstractFixedFormatter;
 import com.ancientprogramming.fixedformat4j.format.FormatInstructions;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.commons.lang.StringUtils;
 
 /**
  * Formatter for {@link Character} data
@@ -36,7 +36,9 @@ public class CharacterFormatter extends AbstractFixedFormatter<Character> {
     if (!StringUtils.isEmpty(string)) {
       result = string.charAt(0);
       if (string.length() > 1) {
-        LOG.warn("found more than one character[" + string + "] after reading instructions from record. Will return first character[" + result + "]");
+        LOG.warn("found more than one character[" + string
+            + "] after reading instructions from record. Will return first character[" + result
+            + "]");
       }
     }
     return result;

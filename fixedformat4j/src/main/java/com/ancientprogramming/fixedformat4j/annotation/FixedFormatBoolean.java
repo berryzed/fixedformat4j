@@ -15,10 +15,10 @@
  */
 package com.ancientprogramming.fixedformat4j.annotation;
 
+import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import java.lang.annotation.ElementType;
 
 /**
  * Define representations for {@link Boolean#TRUE} and {@link Boolean#FALSE}
@@ -43,12 +43,14 @@ public @interface FixedFormatBoolean {
 
   /**
    * The string to map a boolean true value to.
+   *
    * @return contains the string representation of a <code>true</code> value
    */
   String trueValue() default TRUE_VALUE;
 
   /**
    * The string to map a boolean false value to.
+   *
    * @return contains the string representation of a <code>false</code> value
    */
   String falseValue() default FALSE_VALUE;

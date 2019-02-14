@@ -45,13 +45,14 @@ public abstract class AbstractNumberFormatter<T> extends AbstractFixedFormatter<
   }
 
   /**
-     * Override and applies signing instead of align.
-     *
-     * @param obj the object to format
-     * @param instructions the instructions
-     * @return the raw value
-     */
-    public String format(T obj, FormatInstructions instructions) {
-      return instructions.getFixedFormatNumberData().getSigning().apply(asString(obj, instructions), instructions);
-    }
+   * Override and applies signing instead of align.
+   *
+   * @param obj the object to format
+   * @param instructions the instructions
+   * @return the raw value
+   */
+  public String format(T obj, FormatInstructions instructions) {
+    return instructions.getFixedFormatNumberData().getSigning()
+        .apply(asString(obj, instructions), instructions);
+  }
 }

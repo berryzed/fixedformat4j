@@ -15,10 +15,10 @@
  */
 package com.ancientprogramming.fixedformat4j.annotation;
 
+import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import java.lang.annotation.ElementType;
 
 /**
  * Marks a class as a representation of a fixed format record
@@ -32,13 +32,16 @@ import java.lang.annotation.ElementType;
 public @interface Record {
 
   /**
-   * The fixed length of the record. It means that the record will always be that long padded with {#paddingChar()}'s
+   * The fixed length of the record. It means that the record will always be that long padded with
+   * {#paddingChar()}'s
+   *
    * @return the length of the record. -1 means no fixed length.
    */
   int length() default -1;
 
   /**
    * The char to pad with.
+   *
    * @return the char to pad with if the record is set to a fixed length;
    */
   char paddingChar() default ' ';

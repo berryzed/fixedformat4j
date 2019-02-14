@@ -28,34 +28,42 @@ import com.ancientprogramming.fixedformat4j.exception.FixedFormatException;
 public interface FixedFormatManager {
 
   /**
-   * Create an instance of the fixedFormatClass and load the data string into the object according to the annotations.
+   * Create an instance of the fixedFormatClass and load the data string into the object according
+   * to the annotations.
    *
    * @param clazz the class to instanciate
-   * @param data  the data to load
+   * @param data the data to load
    * @return an object loaded with the fixedformat data
-   * @throws ParseException       in case that some specific parsing fails. Ex. a field could't be parsed according to some annotation instructions.
-   *                              This exception contains detailed information telling what failed to be loaded.
-   * @throws FixedFormatException in case the fixedFormatRecord class cannot be loaded. Ex. the Class wasn't annotated with a @Record annotation
+   * @throws ParseException in case that some specific parsing fails. Ex. a field could't be parsed
+   * according to some annotation instructions. This exception contains detailed information telling
+   * what failed to be loaded.
+   * @throws FixedFormatException in case the fixedFormatRecord class cannot be loaded. Ex. the
+   * Class wasn't annotated with a @Record annotation
    */
   <T> T load(Class<T> clazz, String data) throws FixedFormatException;
 
   /**
-   * Exports the instance &lt;T&gt; into a fixed formatted string representation.
-   * The instance has to be @Record annotated and containing @Field annotations on the getters that is to be exported
+   * Exports the instance &lt;T&gt; into a fixed formatted string representation. The instance has
+   * to be @Record annotated and containing @Field annotations on the getters that is to be
+   * exported
+   *
    * @param instance is he object that is to be exported
    * @param <T> the type of the instance to export
-   * @return a string representation of the instance after all of it«s @Field annotated data was exported
+   * @return a string representation of the instance after all of itï¿½s @Field annotated data was
+   * exported
    * @throws FixedFormatException in case the instance couldn't be exported
    */
   <T> String export(T instance) throws FixedFormatException;
 
   /**
-   * Exports the instance &lt;T&gt; into a fixed formatted string representation.
-   * The instance is merged on top of the given <code>data</code>.
-   * It is handy in cases where a lot of the data is static. Then the data can be used as a template
+   * Exports the instance &lt;T&gt; into a fixed formatted string representation. The instance is
+   * merged on top of the given <code>data</code>. It is handy in cases where a lot of the data is
+   * static. Then the data can be used as a template
+   *
    * @param template the data to merge the exported instance with
    * @param instance is he object that is to be exported
-   * @return a string representation of the instance after all of it«s @Field annotated data was merged on to the given <code>template</code>
+   * @return a string representation of the instance after all of itï¿½s @Field annotated data was
+   * merged on to the given <code>template</code>
    * @throws FixedFormatException in case the instance couldn't be exported
    */
   <T> String export(String template, T instance) throws FixedFormatException;

@@ -22,6 +22,7 @@ package com.ancientprogramming.fixedformat4j.format;
  * @since 1.0.0
  */
 public abstract class AbstractFixedFormatter<T> implements FixedFormatter<T> {
+
   public T parse(String value, FormatInstructions instructions) {
     T result = null;
     if (value != null) {
@@ -33,16 +34,20 @@ public abstract class AbstractFixedFormatter<T> implements FixedFormatter<T> {
 
   /**
    * Removes the padding characters defined in the instructions.
+   *
    * @param value the string to remove padding chars from
    * @param instructions the instructions containing the padding char
-   * @return the remaining string value after padding chars was removed. The empty string if he <code>value</code> only contained adding chars.
+   * @return the remaining string value after padding chars was removed. The empty string if he
+   * <code>value</code> only contained adding chars.
    */
   String getRemovePadding(String value, FormatInstructions instructions) {
     return instructions.getAlignment().remove(value, instructions.getPaddingChar());
   }
 
   public String format(T value, FormatInstructions instructions) {
-    return instructions.getAlignment().apply(asString(value, instructions), instructions.getLength(), instructions.getPaddingChar());
+    return instructions.getAlignment()
+        .apply(asString(value, instructions), instructions.getLength(),
+            instructions.getPaddingChar());
   }
 
   public abstract T asObject(String string, FormatInstructions instructions);

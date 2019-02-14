@@ -17,7 +17,6 @@ package com.ancientprogramming.fixedformat4j.annotation;
 
 import com.ancientprogramming.fixedformat4j.format.FixedFormatter;
 import com.ancientprogramming.fixedformat4j.format.impl.ByTypeFormatter;
-
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -25,27 +24,32 @@ import java.lang.annotation.Target;
 
 /**
  * Wrapper for more than one field.
+ *
  * @author Jacob von Eyben - http://www.ancientprogramming.com
  * @since 1.0.0
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD})
 public @interface Fields {
+
   /**
-   * Defines a list of field annotations.
-   * Useful a field is to be mapped different places in the text.
+   * Defines a list of field annotations. Useful a field is to be mapped different places in the
+   * text.
+   *
    * @return a list of {@link Field} annotations
    */
   Field[] value() default {};
 
   /**
    * A one based offset to insert data at in a record.
+   *
    * @return the offset as an int
    */
   int offset() default -1;
 
   /**
    * The length of the formatted field
+   *
    * @return the length as an int
    */
   int length() default -1;
@@ -59,6 +63,7 @@ public @interface Fields {
 
   /**
    * The character to pad with if the length is longer than the formatted data
+   *
    * @return the padding character
    */
   char paddingChar() default ' ';

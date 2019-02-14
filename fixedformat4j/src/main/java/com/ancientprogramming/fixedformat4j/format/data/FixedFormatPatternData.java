@@ -15,8 +15,9 @@
  */
 package com.ancientprogramming.fixedformat4j.format.data;
 
+import static com.ancientprogramming.fixedformat4j.annotation.FixedFormatPattern.DATE_PATTERN;
+
 import com.ancientprogramming.fixedformat4j.annotation.FixedFormatPattern;
-import static com.ancientprogramming.fixedformat4j.annotation.FixedFormatPattern.*;
 
 /**
  * Data object containing the exact same data as {@link FixedFormatPattern}

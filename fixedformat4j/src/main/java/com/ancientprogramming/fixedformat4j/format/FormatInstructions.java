@@ -17,9 +17,9 @@ package com.ancientprogramming.fixedformat4j.format;
 
 import com.ancientprogramming.fixedformat4j.annotation.Align;
 import com.ancientprogramming.fixedformat4j.format.data.FixedFormatBooleanData;
-import com.ancientprogramming.fixedformat4j.format.data.FixedFormatPatternData;
 import com.ancientprogramming.fixedformat4j.format.data.FixedFormatDecimalData;
 import com.ancientprogramming.fixedformat4j.format.data.FixedFormatNumberData;
+import com.ancientprogramming.fixedformat4j.format.data.FixedFormatPatternData;
 
 /**
  * Contains instructions on how to export and load fixed formatted data.
@@ -38,7 +38,9 @@ public class FormatInstructions {
   private FixedFormatNumberData fixedFormatNumberData;
   private FixedFormatDecimalData fixedFormatDecimalData;
 
-  public FormatInstructions(int length, Align alignment, char paddingChar, FixedFormatPatternData fixedFormatPatternData, FixedFormatBooleanData fixedFormatBooleanData, FixedFormatNumberData fixedFormatNumberData, FixedFormatDecimalData fixedFormatDecimalData) {
+  public FormatInstructions(int length, Align alignment, char paddingChar,
+      FixedFormatPatternData fixedFormatPatternData, FixedFormatBooleanData fixedFormatBooleanData,
+      FixedFormatNumberData fixedFormatNumberData, FixedFormatDecimalData fixedFormatDecimalData) {
     this.length = length;
     this.alignment = alignment;
     this.paddingChar = paddingChar;
@@ -49,7 +51,9 @@ public class FormatInstructions {
     this.fixedFormatDecimalData = fixedFormatDecimalData;
   }
 
-  public FormatInstructions(int length, Align alignment, char paddingChar, char nullChar, FixedFormatPatternData fixedFormatPatternData, FixedFormatBooleanData fixedFormatBooleanData, FixedFormatNumberData fixedFormatNumberData, FixedFormatDecimalData fixedFormatDecimalData) {
+  public FormatInstructions(int length, Align alignment, char paddingChar, char nullChar,
+      FixedFormatPatternData fixedFormatPatternData, FixedFormatBooleanData fixedFormatBooleanData,
+      FixedFormatNumberData fixedFormatNumberData, FixedFormatDecimalData fixedFormatDecimalData) {
     this.length = length;
     this.alignment = alignment;
     this.paddingChar = paddingChar;

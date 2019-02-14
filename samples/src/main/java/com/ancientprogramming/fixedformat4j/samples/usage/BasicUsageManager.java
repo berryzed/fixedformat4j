@@ -17,7 +17,6 @@ package com.ancientprogramming.fixedformat4j.samples.usage;
 
 import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
 import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
-import com.ancientprogramming.fixedformat4j.samples.basic.BasicRecord;
 
 /**
  * Shows the basic usage

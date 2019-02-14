@@ -15,14 +15,14 @@
  */
 package com.ancientprogramming.fixedformat4j.annotation;
 
+import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import java.lang.annotation.ElementType;
 
 /**
- * Used together with FixedFormatField annotations to provide a pattern for the data.
- * This annotation is required for {@link java.util.Date} datatype.
+ * Used together with FixedFormatField annotations to provide a pattern for the data. This
+ * annotation is required for {@link java.util.Date} datatype.
  *
  * @author Jacob von Eyben - http://www.ancientprogramming.com
  * @since 1.0.0
@@ -35,10 +35,9 @@ public @interface FixedFormatPattern {
   public static final String DATE_PATTERN = "yyyyMMdd";
 
   /**
-   * The pattern used in formatting and parsing a fixed format field.
-   * Date: yyyyMMdd
-   * Other: ####-######.##
-   * Currency: ???
+   * The pattern used in formatting and parsing a fixed format field. Date: yyyyMMdd Other:
+   * ####-######.## Currency: ???
+   *
    * @return the pattern
    */
   String value();

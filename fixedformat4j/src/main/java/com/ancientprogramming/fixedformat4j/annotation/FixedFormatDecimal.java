@@ -42,5 +42,5 @@ public @interface FixedFormatDecimal {
   char decimalDelimiter() default DECIMAL_DELIMITER;
 
   int roundingMode() default ROUNDING_MODE;
-  
+
 }
